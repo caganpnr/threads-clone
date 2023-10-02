@@ -1,4 +1,4 @@
-//declaring to use client so that this is indeed a client-rendered component
+// usePathname() only works in Client Components.
 "use client";
 
 import Link from "next/link";
@@ -14,7 +14,7 @@ function LeftSidebar() {
     <section className="custom-scrollbar leftsidebar">
       <div className="flex w-full flex-1 flex-col gap-6 px-6">
         {sidebarLinks.map((link) => {
-          //which tab is active logic
+          //which tab is active logic. Also we are mapping the sidebar items since we gave them as constants.
           const isActive =
             (pathname.includes(link.route) && link.route.length > 1) ||
             pathname === link.route;
@@ -29,7 +29,8 @@ function LeftSidebar() {
                 alt={link.label}
                 width={24}
                 height={24}
-              ></Image>
+              />
+              <p className="text-light-1 max-lg:hidden">{link.label}</p>
             </Link>
           );
         })}
