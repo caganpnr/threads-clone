@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
   bio: String,
   threads: [
     {
+      //Using ObjectId to uniquely identify documents in a MongoDB collection
       type: mongoose.Schema.Types.ObjectId,
       ref: "Thread",
     },
